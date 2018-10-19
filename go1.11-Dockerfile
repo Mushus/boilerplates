@@ -1,0 +1,17 @@
+FROM golang:1.11-alpine AS builder
+ENV GO111MODULE on
+
+RUN apk add git build-base
+
+WORKDIR /go/src
+COPY . .
+
+RUN go build -o /go/bin/main
+
+FROM alpine:latest AS runner
+
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /go/bin/main entrypoint
+CMD ["./entrypoint"]
+
