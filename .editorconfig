@@ -16,10 +16,12 @@ indent_size = 2
 
 # YAML
 [*.{yml,yaml}]
+indent_style = space
 indent_size = 2
 
 # JSON
 [*.json]
+indent_style = space
 indent_size = 2
 
 # Makefile
@@ -31,8 +33,16 @@ indent_size = 4
 [*.go]
 indent_style = tab
 indent_size = 4
-[{go.sum,go.mod}]
+[go.{sum,mod}]
 indent_style = tab
 indent_size = 4
 
+# JavaScript
+[*.jsx?]
+indent_style = space
+indent_size = 2
 
+# TypeScript
+[*.tsx?]
+indent_style = space
+indent_size = 2
