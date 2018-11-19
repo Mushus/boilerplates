@@ -1,0 +1,25 @@
+version: "3"
+services:
+
+  web:
+    image: php:fpm
+    container_name: web
+    restart: always
+    ports:
+      - 8080:8080
+
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: always
+    port:
+      - 3306:3306
+    volumes:
+      - "$MYSQL_DATASOURCE:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+
