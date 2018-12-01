@@ -24,19 +24,6 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-# Makefile
-[Makefile]
-indent_style = tab
-indent_size = 4
-
-# Golang
-[*.go]
-indent_style = tab
-indent_size = 4
-[go.{sum,mod}]
-indent_style = tab
-indent_size = 4
-
 # JavaScript
 [*.{js,jsx}]
 indent_style = space
@@ -46,11 +33,6 @@ indent_size = 2
 [*.{ts,tsx}]
 indent_style = tab
 indent_size = 4
-
-# Vue
-[*.vue]
-indent_style = space
-indent_size = 2
 
 # HTML
 [*.{htm,html}]
