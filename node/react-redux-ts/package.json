@@ -25,7 +25,6 @@
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
-    "redux-form": "^7.4.2",
     "typescript-fsa": "^3.0.0-beta-2",
     "typescript-fsa-reducers": "^1.1.0"
   }

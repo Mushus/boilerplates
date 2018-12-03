@@ -1,16 +1,10 @@
 import { combineReducers } from 'redux';
-import { reducer as inputReducer, State as InputState } from "@/modules/input";
+import { reducer as todoReducer, State as todoState } from "@/modules/todo";
 
 export interface State {
-	input: InputState,
+	todo: todoState,
 }
 
-export const InitialState: State = {
-	input: {
-		text: "",
-	}
-};
-
 export const reducer = combineReducers<State>({
-	input: inputReducer,
+	todo: todoReducer,
 });
