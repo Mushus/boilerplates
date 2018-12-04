@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { State } from '@/modules'
-import { AddAction, InputAction } from '@/modules/todo';
+import * as React from "react"
+import { connect } from "react-redux"
+import { IState } from "@/modules"
+import { AddAction, InputAction } from "@/modules/todo"
 
 interface StateProp {
 	text: string
@@ -12,23 +12,35 @@ interface ActionProps {
 	add: () => void
 }
 
-type Props = StateProp & ActionProps;
+type Props = StateProp & ActionProps
 
-const mapStateToProps = ({ todo: { text } }: State): StateProp => ({
-	text
-});
+const mapStateToProps = ({ todo: { text } }: IState): StateProp => ({
+	text,
+})
 
 const mapDispatchToProps = (dispatch: any): ActionProps => ({
 	input: text => dispatch(InputAction(text)),
-	add: () => dispatch(AddAction())
+	add: () => dispatch(AddAction()),
 })
 
 const component = ({ add, input, text }: Props) => {
-	return <div>
-		<input type="text" placeholder="Todo" value={ text } onChange={ e => input(e.target.value) } />
-		<button type="button" onClick={ e => add() }>Add</button>
-	</div>
-};
+	return (
+		<div>
+			<input
+				type="text"
+				placeholder="Todo"
+				value={text}
+				onChange={e => input(text)}
+			/>
+			<button type="button" onClick={() => add()}>
+				Add
+			</button>
+		</div>
+	)
+}
 
-const container = connect(mapStateToProps, mapDispatchToProps)(component);
+const container = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(component)
 export default container

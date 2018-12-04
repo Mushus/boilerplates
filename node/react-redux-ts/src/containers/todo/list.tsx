@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { State } from '@/modules'
-import { FinishAction } from '@/modules/todo';
+import * as React from "react"
+import styled from "styled-components"
+import { connect } from "react-redux"
+import { IState } from "@/modules"
+import { FinishAction } from "@/modules/todo"
 
 interface StateProp {
 	inProgress: string[]
@@ -9,35 +10,53 @@ interface StateProp {
 }
 
 interface ActionProps {
-	finish: (text: number) => void
+	finish: (index: number) => void
 }
 
-type Props = StateProp & ActionProps;
+type Props = StateProp & ActionProps
 
-const mapStateToProps = ({ todo: { inProgress, finished } }: State): StateProp => ({
+const mapStateToProps = ({
+	todo: { inProgress, finished },
+}: IState): StateProp => ({
 	inProgress,
 	finished,
-});
-
-const mapDispatchToProps = (dispatch: any): ActionProps => ({
-	finish: index => dispatch(FinishAction(index))
 })
 
-const component = ({ finish, finished, inProgress }: Props) => {
-	console.log(inProgress);
-	return <div>
-		<ul>
-			{ inProgress.map( (row, index) => <li key={index}>
-				{ row } <button type="button" onClick={ e => finish(index) }>x</button>
-			</li>) }
-		</ul>
-		<ul>
-			{ finished.map( (row, index) => <li key={index}>
-				{ row }
-			</li>) }
-		</ul>
-	</div>
-};
+const mapDispatchToProps = (dispatch: any): ActionProps => ({
+	finish: index => dispatch(FinishAction(index)),
+})
 
-const container = connect(mapStateToProps, mapDispatchToProps)(component);
+const InProgress = styled.li`
+	font-weight: bold;
+`
+const Finished = styled.li`
+	text-decoration: line-through;
+`
+
+const component = ({ finish, finished, inProgress }: Props) => {
+	return (
+		<div>
+			<ul>
+				{inProgress.map((row, index) => (
+					<InProgress key={index}>
+						{row}{" "}
+						<button type="button" onClick={() => finish(index)}>
+							x
+						</button>
+					</InProgress>
+				))}
+			</ul>
+			<ul>
+				{finished.map((row, index) => (
+					<Finished key={index}>{row}</Finished>
+				))}
+			</ul>
+		</div>
+	)
+}
+
+const container = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(component)
 export default container
