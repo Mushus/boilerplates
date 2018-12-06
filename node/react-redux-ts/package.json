@@ -9,6 +9,7 @@
     "@types/react-redux": "^6.0.10",
     "@types/redux-form": "^7.4.12",
     "@types/styled-components": "^4.1.3",
+    "favicons-webpack-plugin": "^0.0.9",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
