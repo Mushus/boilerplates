@@ -1,10 +1,12 @@
-import Input from "@/containers/todo/input"
-import List from "@/containers/todo/list"
-import * as React from "react"
+import Input from '~/containers/todo/input';
+import List from '~/containers/todo/list';
+import * as React from 'react';
 
-export default () => (
+const App = () => (
 	<div>
 		<Input />
 		<List />
 	</div>
-)
+);
+
+export default App;

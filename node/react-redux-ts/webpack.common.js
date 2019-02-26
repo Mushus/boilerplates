@@ -9,29 +9,22 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
         test: /\.tsx?$/,
         use: [
+          'ts-loader',
           {
-            loader: 'tslint-loader',
+            loader: 'eslint-loader',
             options: {
-              typeCheck: true,
               fix: true,
-            },
-          },
+            }
+          }
         ],
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
+            MiniCssExtractPlugin.loader,
             "css-loader",
             "sass-loader"
         ]
@@ -41,7 +34,7 @@ module.exports = {
   resolve: {
     extensions: [ '.tsx', '.ts', '.js', '.scss' ],
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
+      '~': path.resolve(__dirname, 'src/'),
     },
   },
   output: {
