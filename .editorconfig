@@ -61,3 +61,9 @@ indent_size = 2
 [*.{css,scss}]
 indent_style = space
 indent_size = 2
+
+## For JS Project
+# JSON format
+[.prettierrc]
+indent_style = space
+indent_size = 2
