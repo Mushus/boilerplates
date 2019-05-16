@@ -67,3 +67,8 @@ indent_size = 2
 [.prettierrc]
 indent_style = space
 indent_size = 2
+
+# Terraform
+[*.tf]
+indent_style = space
+indent_size = 2
